@@ -20,10 +20,10 @@ public class Bookning {
         int im = imput.nextInt();
         switch (im) {
             case 1 -> {
-                this.boka();
+                boka();
             }
             case 2 -> {
-                this.avboka();
+                avboka();
             }
             default -> bokning();
         }
@@ -31,28 +31,25 @@ public class Bookning {
 
     public void boka() {
         System.out.println("skriv in ditt förnamn");
-        this.namn = imput.nextLine();
-        System.out.println("skriv in ditt efternamn");
-        this.efternamn = imput.nextLine();
-        System.out.println("antal vuxna");
-        //Metod1
-        this.antal_personervuxen = imput.nextInt();
+        bookningslager[1] = imput.nextLine();
         imput.nextLine();
-        ///metod 2
+        System.out.println("skriv in ditt efternamn");
+        bookningslager[2] = imput.nextLine();
+        imput.nextLine();
+        System.out.println("antal vuxna");
+        bookningslager[3] = imput.nextInt();
+        imput.nextLine();
         System.out.println("antal barn");
-        this.antal_personerbarn = imput.nextInt();
+        bookningslager[4] = imput.nextInt();
         imput.nextLine();
         System.out.println("telefonnummer");
-        this.telenummer = imput.nextInt();
+        bookningslager[5] = imput.nextInt();
         imput.nextLine();
         Random rand = new Random();
-        int random_int = (int) Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        System.out.println("din bokningsnummer är" + random_int);
-        /*
-        if(this.bookningslager[2].equals("\D+")) {
-            ;
-        }
-         */
+        bookningslager[0] = rand.nextInt(100000, 1000000);
+        System.out.println("din bokningsnummer är" + bookningslager[0]);
+        System.out.println("tack för du har bokat ett rum hos oss");
+        System.out.println("betalning sker på plats");
     }
 
     public void avboka() {

@@ -1,15 +1,13 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
 public class Bookning {
     //Flyttas om person klass implimenteras
-    String namn;
-    String efternamn;
-    int telenummer;
-    ///
-    int bokningsnummer;
-    int antal_personervuxen;
-    int antal_personerbarn;
+
+    public Bookning() {
+        bokning();
+    }
 
     Scanner imput = new Scanner(System.in);
     Object[] bookningslager = new Object[6];
@@ -47,7 +45,7 @@ public class Bookning {
         imput.nextLine();
         Random rand = new Random();
         bookningslager[0] = rand.nextInt(100000, 1000000);
-        System.out.println("din bokningsnummer är" + bookningslager[0]);
+        System.out.println("din bokningsnummer är " + bookningslager[0]);
         System.out.println("tack för du har bokat ett rum hos oss");
         System.out.println("betalning sker på plats");
     }

@@ -2,14 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    ArrayList<Bookning> bookningar;
 
-
-    public void meny() {
-        Bookning b = bookningar.get(2);
-        System.out.println(b.namn);
-
-
+    public static void main(String[] args) {
+        Meny m = new Meny();
     }
-
 }

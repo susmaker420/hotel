@@ -15,6 +15,7 @@ public class Bookning {
     public void bokning() {
         System.out.println("1. för att boka ett rum");
         System.out.println("2. för att avboka rummet");
+        System.out.println("3 för att komma tillbacka till menyn");
         int im = imput.nextInt();
         switch (im) {
             case 1 -> {
@@ -22,6 +23,9 @@ public class Bookning {
             }
             case 2 -> {
                 avboka();
+            }
+            case 3 -> {
+                Meny meny = new Meny();
             }
             default -> bokning();
         }
@@ -48,10 +52,39 @@ public class Bookning {
         System.out.println("din bokningsnummer är " + bookningslager[0]);
         System.out.println("tack för du har bokat ett rum hos oss");
         System.out.println("betalning sker på plats");
+        bokning();
     }
 
     public void avboka() {
+        System.out.println("skriv in din boknings kod");
+        imput.nextLine();
+        if (imput == bookningslager[0]) {
+            System.out.println("namen" + bookningslager[1]);
+            System.out.println("efternamn" + bookningslager[2]);
+            System.out.println("antal vuxna" + bookningslager[3]);
+            System.out.println("antal barn" + bookningslager[4]);
+            System.out.println("telefonummer" + bookningslager[5]);
+            System.out.println("är du säker att du vill avboka ?");
+            System.out.println(" 1 för att avboka ");
+            System.out.println(" 2 för att behålla bokningen ");
+            int sw = imput.nextInt();
+            switch (sw) {
+                case 1 -> {
+                
+                    System.out.println("du har avbokat ditt rum");
+                    bokning();
+                }
+                case 2 -> {
+                    System.out.println("tack att du är bokad hos oss");
+                    bokning();
+                }
+                default -> avboka();
 
+            }
+        } else if (imput != bookningslager[0]) {
+            System.out.println("koden du har anget matchar inte");
+            avboka();
+        }
     }
 
 }

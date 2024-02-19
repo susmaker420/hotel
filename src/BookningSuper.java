@@ -13,11 +13,11 @@ public class BookningSuper {
         imput.nextLine();
 
         System.out.println("skriv in din boknings kod");
-        int inP = imput.nextInt();
+        int inP = imput.nextInt();                                // avboknings systemet
         for (int i = 0; i < bokningsArray.size(); i++) {
             if (bokningsArray.get(i).Kod == inP) {
                 System.out.println("namn " + bokningsArray.get(i).bookningslager[0]);
-                System.out.println("efternamn " + bokningsArray.get(i).bookningslager[1]);
+                System.out.println("efternamn " + bokningsArray.get(i).bookningslager[1]);  //array infot ifrån boknigen
                 System.out.println("antal vuxna " + bokningsArray.get(i).bookningslager[2]);
                 System.out.println("antal barn " + bokningsArray.get(i).bookningslager[3]);
                 System.out.println("telefonummer " + bokningsArray.get(i).bookningslager[4]);
@@ -28,6 +28,12 @@ public class BookningSuper {
                 switch (sw) {
                     case 1 -> {
                         System.out.println("du har avbokat ditt rum");
+                        bokningsArray.get(i).bookningslager[0] = 0;   // nollställer alla arrays
+                        bokningsArray.get(i).bookningslager[1] = 0;
+                        bokningsArray.get(i).bookningslager[2] = 0;
+                        bokningsArray.get(i).bookningslager[3] = 0;
+                        bokningsArray.get(i).bookningslager[4] = 0;
+
                         bokaVal();
                     }
                     case 2 -> {
@@ -38,7 +44,7 @@ public class BookningSuper {
 
                 }
 
-            } else {
+            } else {  // im görning på fel inskrivning
                 System.out.println("koden du har anget matchar inte");
                 System.out.println("eller så finns inget rum under denna bokningkoden");
                 System.out.println("tryck 1 för att prova om");
@@ -57,7 +63,7 @@ public class BookningSuper {
     }
 
     public void bokaVal() {
-        System.out.println("1. för att boka ett rum");
+        System.out.println("1. för att boka ett rum");   // meny
         System.out.println("2. för att avboka rummet");
 
 
@@ -70,13 +76,13 @@ public class BookningSuper {
             case 2 -> {
                 avboka();
             }
-            
+
             default -> bokaVal();
         }
     }
 
     public void boka() {
-        bokningsArray.add(index, new Bokning());
+        bokningsArray.add(index, new Bokning()); // bokkning
         imput.nextLine();
         System.out.println("skriv in ditt förnamn");
         bokningsArray.get(index).bookningslager[0] = imput.nextLine();
